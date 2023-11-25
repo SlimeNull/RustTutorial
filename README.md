@@ -69,7 +69,7 @@ use std::io::{Write, stdout};
 
 ```rust
 fn test1() {
-	println!("hello");
+  println!("hello");
 }
 ```
 
@@ -77,7 +77,7 @@ fn test1() {
 
 ```rust
 fn test2(number: i32) {
-	println!("number: {}", number);
+  println!("number: {}", number);
 }
 ```
 
@@ -85,7 +85,7 @@ fn test2(number: i32) {
 
 ```rust
 fn test3(num1: i32, num2: i32) -> i32 {
-	return num1 + num2;
+  return num1 + num2;
 }
 ```
 
@@ -143,7 +143,7 @@ Rust 中的 `if` 不使用括号, 直接跟表达式以及语句即可.
 ```rust
 let num = 114514;
 if num == 114514 {
-	println!("value is 114514");
+  println!("value is 114514");
 }
 ```
 
@@ -155,7 +155,7 @@ if num == 114514 {
 } else if num == 1919810 {
   println!("value is 1919810");
 } else {
-	println!("invalid value");
+  println!("invalid value");
 }
 ```
 
@@ -164,9 +164,9 @@ Rust 中的 `if` 也可以实现根据条件返回特定值的需求.
 ```rust
 let num = 114514;
 let tip = if num == 114514 {
-	"哼哼哼"
+  "哼哼哼"
 } else {
-	"啊啊啊"
+  "啊啊啊"
 };
 ```
 
@@ -176,7 +176,7 @@ Rust 中的  `for` 用来对一个实例进行迭代. 使用 `起始值..结束�
 
 ```rust
 for i in 0..10 {
-	println!("current value: {}", i);
+  println!("current value: {}", i);
 }
 ```
 
@@ -184,7 +184,7 @@ for i in 0..10 {
 
 ```rust
 for i in 0..10 {
-	println!("current value: {}", i);
+  println!("current value: {}", i);
 
   if i == 3 {
     continue;
@@ -201,7 +201,7 @@ for i in 0..10 {
 ```rust
 let arr = [1, 2, 3, 4];
 for mut ele in arr {
-	ele = ele * 2;
+  ele = ele * 2;
 }
 ```
 
@@ -210,15 +210,15 @@ for mut ele in arr {
 ```rust
 let mut i = 0;
 loop {
-	println!("current value: {}", i);
+  println!("current value: {}", i);
 
   if i == 3 {
-		continue;
-	}
+    continue;
+  }
 
-	if i == 10 {
-		break;
-	}
+  if i == 10 {
+    break;
+  }
 }
 ```
 
@@ -226,10 +226,10 @@ Rust 的 `loop` 还支持给循环语句加上标签, 然后在内部循环中�
 
 ```rust
 'loop_out: loop {
-	loop {
-	  // 在内部循环直接中断最外部循环
-		break 'loop_out;
-	}
+  loop {
+    // 在内部循环直接中断最外部循环
+    break 'loop_out;
+  }
 }
 ```
 
@@ -238,11 +238,11 @@ Rust 的 `loop` 还可以作为一个带返回值的表达式使用. 只需要�
 ```rust
 let mut value = 0;
 let result = loop {
-	value += 1;
+  value += 1;
 
-	if value == 10 {
-	  break value * 2;
-	}
+  if value == 10 {
+    break value * 2;
+  }
 };
 ```
 
@@ -251,9 +251,9 @@ Rust 的 `match` 语句可以近似理解为 `if` 的高级语法. 传入一个�
 ```rust
 let num = 114514;
 match num {
-	114514 => println!("hello"),
-	1919810 => println!("world"),
-	_ => { }
+  114514 => println!("hello"),
+  1919810 => println!("world"),
+  _ => { }
 }
 ```
 
@@ -263,9 +263,9 @@ match num {
 
 ```rust
 let result = match num {
-	114514 => "hello",
-	1919810 => "world",
-	_ => ""
+  114514 => "hello",
+  1919810 => "world",
+  _ => ""
 };
 ```
 
@@ -421,7 +421,7 @@ let valueOption = hm.remove(&"qwq");
 
 ```rust
 for (k, v) in hm { 
-	println!("Key: {}, Value: {}", k, v);
+  println!("Key: {}, Value: {}", k, v);
 }
 ```
 
@@ -450,8 +450,8 @@ let result = hs.contains(&123);
 
 ```rust
 struct Point {
-	x: i32,
-	y: i32,
+  x: i32,
+  y: i32,
 }
 ```
 
@@ -473,9 +473,9 @@ let x = p.x;
 
 ```rust
 impl Point {
-	fn new(x: i32, y: i32) -> Point {
-		Point { x: x, y: y }
-	}
+  fn new(x: i32, y: i32) -> Point {
+    Point { x: x, y: y }
+  }
 }
 ```
 
@@ -489,9 +489,9 @@ let p = Point::new(123, 456);
 
 ```rust
 impl Point {
-	fn output(self: &Self) {
-		println!("Point, x: {}, y: {}", self.x, self.y);
-	}
+  fn output(self: &Self) {
+    println!("Point, x: {}, y: {}", self.x, self.y);
+  }
 }
 ```
 
@@ -505,11 +505,11 @@ p.output();
 
 ```rust
 impl Point {
-	// 不使用 Self 关键字, 而是使用具体的 Point 类型
-	fn output1(self: &Point) { }
+  // 不使用 Self 关键字, 而是使用具体的 Point 类型
+  fn output1(self: &Point) { }
 
   // 不使用 Self 关键字, 而是让其自动推导类型
-	fn output2(&self) { }
+  fn output2(&self) { }
 }
 ```
 
@@ -576,8 +576,8 @@ Rust 中的特性(Attribute)是一种标记. 类似于 C# 的 `Attribute` 或者
 ```rust
 #[derive(PartialEq, Eq)]
 struct Point {
-	x: i32,
-	y: i32
+  x: i32,
+  y: i32
 }
 ```
 
@@ -590,7 +590,7 @@ let p1 = Point { x: 123, y: 456 };
 let p2 = Point { x: 345, y: 829 };
 
 if p1 == p2 {
-	println!("两点相等")
+  println!("两点相等")
 }
 ```
 
@@ -606,7 +606,7 @@ Rust 对于枚举的优化是很好的, 不像 Java 一般是基于堆中存储�
 
 ```rust
 enum ColorChannel {
-	Red, Green, Blue
+  Red, Green, Blue
 }
 ```
 
@@ -622,8 +622,8 @@ let color_channel3 = ColorChannel::Blue;
 
 ```rust
 match color_channel1 {
-	ColorChannel::Red => println!("is red"),
-	_ => {}
+  ColorChannel::Red => println!("is red"),
+  _ => {}
 }
 ```
 
@@ -646,13 +646,13 @@ enum Color {
 let color = Color::Rgb(89, 43, 233);
 
 match color {
-	Color::Rgb(r, g, b) => {
-		println!("颜色是 RGB 值. R: {}, G: {}, B: {}", r, g, b);
-	},
+  Color::Rgb(r, g, b) => {
+    println!("颜色是 RGB 值. R: {}, G: {}, B: {}", r, g, b);
+  },
 
-	Color::Channel(channel) => {
-		println!("颜色是通道, {}", channel);
-	}
+  Color::Channel(channel) => {
+    println!("颜色是通道, {}", channel);
+  }
 }
 ```
 
@@ -662,7 +662,7 @@ match color {
 
 ```rust
 if let Color::Rgb(r, g, b) = color {
-	println!("颜色是 RGB 值. R: {}, G: {}, B: {}", r, g, b);
+  println!("颜色是 RGB 值. R: {}, G: {}, B: {}", r, g, b);
 }
 ```
 
@@ -681,17 +681,17 @@ enum Color {
 let color = Color::Rgb { r: 23, g: 12, b: 129 };
 
 match color {
-	Color::Rgb { r, g, b } => {
-		println!("颜色是 RGB 值. R: {}, G: {}, B: {}", r, g, b);
-	},
+  Color::Rgb { r, g, b } => {
+    println!("颜色是 RGB 值. R: {}, G: {}, B: {}", r, g, b);
+  },
 
-	Color::Channel { channel }=> {
-		println!("颜色是通道, {}", channel);
-	}
+  Color::Channel { channel }=> {
+    println!("颜色是通道, {}", channel);
+  }
 }
 
 if let Color::Rgb { r, g, b } = color {
-	println!("颜色是 RGB 值. R: {}, G: {}, B: {}", r, g, b);
+  println!("颜色是 RGB 值. R: {}, G: {}, B: {}", r, g, b);
 }
 ```
 
@@ -770,20 +770,20 @@ struct TwoValues<T1, T2> {
 
 ```rust
 let two_values = TwoValues::<i32, u8> {
-	value1: 123,
-	value2: 123
+  value1: 123,
+  value2: 123
 };
 
 // 或者
 let two_values : TwoValues<i32, u8> = TwoValues {
-	value1: 123,
-	value2: 123
+  value1: 123,
+  value2: 123
 };
 
 // 也可以自动推导类型, 这里将会被推导为 TwoValues<i32, i32>
 let two_values = TwoValues {
-	value1: 123,
-	value2: 123
+  value1: 123,
+  value2: 123
 };
 ```
 
@@ -826,16 +826,16 @@ impl<T: Display> TwoValues<&str, T> {
 ```rust
 // 正确使用
 let two_values = TwoValues::<&str, i32> {
-	value1: "Tip",
-	value2: 10
+  value1: "Tip",
+  value2: 10
 }
 
 print_i32::<SimpleI32Printer>(114514, printer1);
 
 // 错误使用
 let two_values = TwoValues<&str, i32> {
-	value1: "Tip",
-	value2: 10
+  value1: "Tip",
+  value2: 10
 }
 
 print_i32<SimpleI32Printer>(114514, printer1);
@@ -860,7 +860,7 @@ print_i32<SimpleI32Printer>(114514, printer1);
 
 ```rust
 if true {
-	let some_integer = 114514;
+  let some_integer = 114514;
 }
 
 // 这里将报错, 因为已经脱离了 some_integer 的作用域
@@ -871,20 +871,20 @@ println!("value: {}", some_integer);
 
 ```rust
 struct MyValue {
-	value: i32
+  value: i32
 }
 
 fn print_value(value: MyValue) {
-	println!("value: {}", value.value);
+  println!("value: {}", value.value);
 }
 
 fn main() {
-	let my_value = MyValue { value: 114514 };
-	print_value(my_value);
+  let my_value = MyValue { value: 114514 };
+  print_value(my_value);
 
   // 这里将报错, 因为在执行 print_value 的时候, 所有权已经被转让
   // 当前作用域不再持有 my_value, 也就无法再使用它
-	println!("value: {}", my_value.value);
+  println!("value: {}", my_value.value);
 }
 ```
 
@@ -892,20 +892,20 @@ fn main() {
 
 ```rust
 struct MyValue {
-	value: i32
+  value: i32
 }
 
 fn print_value(value: &MyValue) {
-	println!("value: {}", value.value);
+  println!("value: {}", value.value);
 }
 
 fn main() {
-	let my_value = MyValue { value: 114514 };
-	print_value(&my_value);
+  let my_value = MyValue { value: 114514 };
+  print_value(&my_value);
 
   // 这时, 你仍然可以使用 my_value
   // 因为当前作用域持有 my_value 的所有权
-	println!("value: {}", my_value.value);
+  println!("value: {}", my_value.value);
 }
 ```
 
@@ -921,9 +921,9 @@ fn change_value(value: &mut MyValue) {
 
 ```rust
 fn main() {
-	let my_value = MyValue { value: 114514 };
+  let my_value = MyValue { value: 114514 };
 
-	change_value(&mut my_value);
+  change_value(&mut my_value);
 }
 ```
 
