@@ -1,4 +1,4 @@
-# [Rust] 基础入门教程
+# [Rust] 快速基础入门教程
 
 Rust 是一个无运行时的强类型语言, 包含很多高级特性, 例如泛型, lambda 等. 又因为其独有的所有权机制, 所以 Rust 的内存安全要比 C++ 完善许多.
 
@@ -8,7 +8,7 @@ Rust 是一个无运行时的强类型语言, 包含很多高级特性, 例如�
 
 ## 风格
 
-Rust 与 C 族语言不一样, C 族语言在定义方法, 变量时, 都是 `类型 关键字` 这样的格式, 也就是类型前置. Rust 采用的是类型后置的风格, 即 `关键字: 类型`.
+Rust 与 C 族语言不一样, C 族语言在定义方法, 变量时, 都是 `类型 关键字` 这样的格式, 也就是类型前置. Rust 采用的是类型后置的风格, 即 `关键字: 类型`
 
 
 
@@ -23,14 +23,14 @@ use std::io::stdout;
 use std::io::Write;
 
 fn main() {
-  let hello_str = "Hello world";
-  let bytes = hello_str.as_bytes();
+    let hello_str = "Hello world";
+    let bytes = hello_str.as_bytes();
 
-  stdout().write_all(bytes).unwrap();
+	stdout().write_all(bytes).unwrap();
 }
 ```
 
-其中, 处于同一 `mod` 下的 `stdout` 和 `Write` 可以通过花括号合并为以下语句:
+在上面代码中, `std::io::stdout` 与 `std::io::Write` 都是在 `std::io` 下, 它们可以通过花括号合并为以下语句:
 
 ```rust
 use std::io::{Write, stdout};
@@ -69,7 +69,7 @@ use std::io::{Write, stdout};
 
 ```rust
 fn test1() {
-  println!("hello");
+	println!("hello");
 }
 ```
 
@@ -77,7 +77,7 @@ fn test1() {
 
 ```rust
 fn test2(number: i32) {
-  println!("number: {}", number);
+	println!("number: {}", number);
 }
 ```
 
@@ -85,7 +85,7 @@ fn test2(number: i32) {
 
 ```rust
 fn test3(num1: i32, num2: i32) -> i32 {
-  return num1 + num2;
+	return num1 + num2;
 }
 ```
 
@@ -93,7 +93,7 @@ fn test3(num1: i32, num2: i32) -> i32 {
 
 ```rust
 fn test3(num1: i32, num2: i32) -> i32 {
-  num1 + num2
+	num1 + num2
 }
 ```
 
@@ -101,7 +101,7 @@ fn test3(num1: i32, num2: i32) -> i32 {
 
 ```rust
 fn test4(num1: i32, num2: i32, resolver: fn(i32, i32) -> i32) {
-  println!("{}", resolver(num1, num2));
+	println!("{}", resolver(num1, num2));
 }
 ```
 
@@ -143,7 +143,7 @@ Rust 中的 `if` 不使用括号, 直接跟表达式以及语句即可.
 ```rust
 let num = 114514;
 if num == 114514 {
-  println!("value is 114514");
+	println!("value is 114514");
 }
 ```
 
@@ -151,11 +151,11 @@ if num == 114514 {
 
 ```rust
 if num == 114514 {
-  println!("value is 114514");
+	println!("value is 114514");
 } else if num == 1919810 {
-  println!("value is 1919810");
+	println!("value is 1919810");
 } else {
-  println!("invalid value");
+	println!("invalid value");
 }
 ```
 
@@ -164,9 +164,9 @@ Rust 中的 `if` 也可以实现根据条件返回特定值的需求.
 ```rust
 let num = 114514;
 let tip = if num == 114514 {
-  "哼哼哼"
+	"哼哼哼"
 } else {
-  "啊啊啊"
+	"啊啊啊"
 };
 ```
 
@@ -176,7 +176,7 @@ Rust 中的  `for` 用来对一个实例进行迭代. 使用 `起始值..结束�
 
 ```rust
 for i in 0..10 {
-  println!("current value: {}", i);
+	println!("current value: {}", i);
 }
 ```
 
@@ -184,15 +184,15 @@ for i in 0..10 {
 
 ```rust
 for i in 0..10 {
-  println!("current value: {}", i);
+    println!("current value: {}", i);
 
-  if i == 3 {
-    continue;
-  }
+    if i == 3 {
+    	continue;
+    }
 
-  if i == 7 {
-    break;
-  }
+    if i == 7 {
+    	break;
+    }
 }
 ```
 
@@ -201,7 +201,7 @@ for i in 0..10 {
 ```rust
 let arr = [1, 2, 3, 4];
 for mut ele in arr {
-  ele = ele * 2;
+	ele = ele * 2;
 }
 ```
 
@@ -210,15 +210,15 @@ for mut ele in arr {
 ```rust
 let mut i = 0;
 loop {
-  println!("current value: {}", i);
+    println!("current value: {}", i);
 
-  if i == 3 {
-    continue;
-  }
+    if i == 3 {
+    	continue;
+    }
 
-  if i == 10 {
-    break;
-  }
+    if i == 10 {
+    	break;
+    }
 }
 ```
 
@@ -226,10 +226,10 @@ Rust 的 `loop` 还支持给循环语句加上标签, 然后在内部循环中�
 
 ```rust
 'loop_out: loop {
-  loop {
-    // 在内部循环直接中断最外部循环
-    break 'loop_out;
-  }
+    loop {
+        // 在内部循环直接中断最外部循环
+        break 'loop_out;
+    }
 }
 ```
 
@@ -238,11 +238,11 @@ Rust 的 `loop` 还可以作为一个带返回值的表达式使用. 只需要�
 ```rust
 let mut value = 0;
 let result = loop {
-  value += 1;
+    value += 1;
 
-  if value == 10 {
-    break value * 2;
-  }
+    if value == 10 {
+    	break value * 2;
+    }
 };
 ```
 
@@ -251,9 +251,9 @@ Rust 的 `match` 语句可以近似理解为 `if` 的高级语法. 传入一个�
 ```rust
 let num = 114514;
 match num {
-  114514 => println!("hello"),
-  1919810 => println!("world"),
-  _ => { }
+    114514 => println!("hello"),
+    1919810 => println!("world"),
+    _ => { }
 }
 ```
 
@@ -263,9 +263,9 @@ match num {
 
 ```rust
 let result = match num {
-  114514 => "hello",
-  1919810 => "world",
-  _ => ""
+    114514 => "hello",
+    1919810 => "world",
+    _ => ""
 };
 ```
 
@@ -421,7 +421,7 @@ let valueOption = hm.remove(&"qwq");
 
 ```rust
 for (k, v) in hm { 
-  println!("Key: {}, Value: {}", k, v);
+	println!("Key: {}, Value: {}", k, v);
 }
 ```
 
@@ -444,14 +444,14 @@ let result = hs.contains(&123);
 
 <br/>
 
-## 结构 / Structure
+## 结构 / Structures
 
 使用 `struct` 关键字可以创建一个结构体.
 
 ```rust
 struct Point {
-  x: i32,
-  y: i32,
+    x: i32,
+    y: i32,
 }
 ```
 
@@ -473,9 +473,9 @@ let x = p.x;
 
 ```rust
 impl Point {
-  fn new(x: i32, y: i32) -> Point {
-    Point { x: x, y: y }
-  }
+    fn new(x: i32, y: i32) -> Point {
+    	Point { x: x, y: y }
+    }
 }
 ```
 
@@ -489,9 +489,9 @@ let p = Point::new(123, 456);
 
 ```rust
 impl Point {
-  fn output(self: &Self) {
-    println!("Point, x: {}, y: {}", self.x, self.y);
-  }
+    fn output(self: &Self) {
+    	println!("Point, x: {}, y: {}", self.x, self.y);
+    }
 }
 ```
 
@@ -505,11 +505,11 @@ p.output();
 
 ```rust
 impl Point {
-  // 不使用 Self 关键字, 而是使用具体的 Point 类型
-  fn output1(self: &Point) { }
+    // 不使用 Self 关键字, 而是使用具体的 Point 类型
+    fn output1(self: &Point) { }
 
-  // 不使用 Self 关键字, 而是让其自动推导类型
-  fn output2(&self) { }
+    // 不使用 Self 关键字, 而是让其自动推导类型
+    fn output2(&self) { }
 }
 ```
 
@@ -523,7 +523,7 @@ impl Point {
 
 ```rust
 trait TestTrait {
-  fn some_func();
+	fn some_func();
 }
 ```
 
@@ -533,9 +533,9 @@ trait TestTrait {
 
 ```rust
 impl TestTrait for Point {
-  fn some_func() {
-    println!("hello world from struct Point");
-  }
+    fn some_func() {
+    	println!("hello world from struct Point");
+    }
 }
 ```
 
@@ -545,16 +545,16 @@ impl TestTrait for Point {
 
 ```rust
 trait TestTrait {
-  fn get_string(&self) -> String;
-  fn print_string(&self) {
-    println!("{}", self.get_string());
-  }
+    fn get_string(&self) -> String;
+    fn print_string(&self) {
+    	println!("{}", self.get_string());
+    }
 }
 
 impl TestTrait for Point {
-  fn get_string(&self) -> String {
-    return format!("Point, x: {}, y: {}", self.x, self.y);
-  }
+    fn get_string(&self) -> String {
+    	return format!("Point, x: {}, y: {}", self.x, self.y);
+    }
 }
 ```
 
@@ -576,8 +576,8 @@ Rust 中的特性(Attribute)是一种标记. 类似于 C# 的 `Attribute` 或者
 ```rust
 #[derive(PartialEq, Eq)]
 struct Point {
-  x: i32,
-  y: i32
+    x: i32,
+    y: i32
 }
 ```
 
@@ -590,7 +590,7 @@ let p1 = Point { x: 123, y: 456 };
 let p2 = Point { x: 345, y: 829 };
 
 if p1 == p2 {
-  println!("两点相等")
+	println!("两点相等")
 }
 ```
 
@@ -606,7 +606,7 @@ Rust 对于枚举的优化是很好的, 不像 Java 一般是基于堆中存储�
 
 ```rust
 enum ColorChannel {
-  Red, Green, Blue
+	Red, Green, Blue
 }
 ```
 
@@ -622,8 +622,8 @@ let color_channel3 = ColorChannel::Blue;
 
 ```rust
 match color_channel1 {
-  ColorChannel::Red => println!("is red"),
-  _ => {}
+    ColorChannel::Red => println!("is red"),
+    _ => {}
 }
 ```
 
@@ -633,8 +633,8 @@ match color_channel1 {
 
 ```rust
 enum Color {
-  Rgb(u8, u8, u8),
-  Channel(ColorChannel)
+    Rgb(u8, u8, u8),
+    Channel(ColorChannel)
 }
 ```
 
@@ -646,13 +646,13 @@ enum Color {
 let color = Color::Rgb(89, 43, 233);
 
 match color {
-  Color::Rgb(r, g, b) => {
-    println!("颜色是 RGB 值. R: {}, G: {}, B: {}", r, g, b);
-  },
+    Color::Rgb(r, g, b) => {
+    	println!("颜色是 RGB 值. R: {}, G: {}, B: {}", r, g, b);
+    },
 
-  Color::Channel(channel) => {
-    println!("颜色是通道, {}", channel);
-  }
+    Color::Channel(channel) => {
+    	println!("颜色是通道, {}", channel);
+    }
 }
 ```
 
@@ -662,7 +662,7 @@ match color {
 
 ```rust
 if let Color::Rgb(r, g, b) = color {
-  println!("颜色是 RGB 值. R: {}, G: {}, B: {}", r, g, b);
+	println!("颜色是 RGB 值. R: {}, G: {}, B: {}", r, g, b);
 }
 ```
 
@@ -670,8 +670,8 @@ if let Color::Rgb(r, g, b) = color {
 
 ```rust
 enum Color {
-  Rgb { r: u8, g: u8, b:u8 },
-  Channel { channel: ColorChannel }
+    Rgb { r: u8, g: u8, b:u8 },
+    Channel { channel: ColorChannel }
 }
 ```
 
@@ -681,17 +681,17 @@ enum Color {
 let color = Color::Rgb { r: 23, g: 12, b: 129 };
 
 match color {
-  Color::Rgb { r, g, b } => {
-    println!("颜色是 RGB 值. R: {}, G: {}, B: {}", r, g, b);
-  },
+    Color::Rgb { r, g, b } => {
+    	println!("颜色是 RGB 值. R: {}, G: {}, B: {}", r, g, b);
+    },
 
-  Color::Channel { channel }=> {
-    println!("颜色是通道, {}", channel);
-  }
+    Color::Channel { channel }=> {
+    	println!("颜色是通道, {}", channel);
+    }
 }
 
 if let Color::Rgb { r, g, b } = color {
-  println!("颜色是 RGB 值. R: {}, G: {}, B: {}", r, g, b);
+	println!("颜色是 RGB 值. R: {}, G: {}, B: {}", r, g, b);
 }
 ```
 
@@ -707,11 +707,11 @@ if let Color::Rgb { r, g, b } = color {
 
 ```rust
 trait I32Printer {
-  fn print(&self, value: i32);
+	fn print(&self, value: i32);
 }
 
 fn print_i32<Printer: I32Printer>(value: i32, printer: Printer) {
-  printer.print(value);
+	printer.print(value);
 }
 ```
 
@@ -724,19 +724,19 @@ fn print_i32<Printer: I32Printer>(value: i32, printer: Printer) {
 ```rust
 struct SimpleI32Printer;
 struct AnotherI32Printer<'a> {
-  prompt: &'a str,
+	prompt: &'a str,
 }
 
 impl I32Printer for SimpleI32Printer {
-  fn print(&self, value: i32) {
-    println!("{}", value);
-  }
+    fn print(&self, value: i32) {
+    	println!("{}", value);
+    }
 }
 
 impl I32Printer for AnotherI32Printer<'_> {
-  fn print(&self, value: i32) {
-    println!("{}: {}", self.prompt, value);
-  }
+    fn print(&self, value: i32) {
+    	println!("{}: {}", self.prompt, value);
+    }
 }
 ```
 
@@ -761,8 +761,8 @@ print_i32::<AnotherI32Printer>(1919810, printer2);
 
 ```rust
 struct TwoValues<T1, T2> {
-  value1: T1,
-  value2: T2
+    value1: T1,
+    value2: T2
 }
 ```
 
@@ -770,20 +770,20 @@ struct TwoValues<T1, T2> {
 
 ```rust
 let two_values = TwoValues::<i32, u8> {
-  value1: 123,
-  value2: 123
+    value1: 123,
+    value2: 123
 };
 
 // 或者
 let two_values : TwoValues<i32, u8> = TwoValues {
-  value1: 123,
-  value2: 123
+    value1: 123,
+    value2: 123
 };
 
 // 也可以自动推导类型, 这里将会被推导为 TwoValues<i32, i32>
 let two_values = TwoValues {
-  value1: 123,
-  value2: 123
+    value1: 123,
+    value2: 123
 };
 ```
 
@@ -791,9 +791,9 @@ let two_values = TwoValues {
 
 ```rust
 impl<T1, T2> TwoValues<T1, T2> {
-  fn common_fn(&self) {
-    println!("common func");
-  }
+    fn common_fn(&self) {
+    	println!("common func");
+    }
 }
 ```
 
@@ -803,9 +803,9 @@ impl<T1, T2> TwoValues<T1, T2> {
 
 ```rust
 impl TwoValues<&str, i32> {
-  fn test_output(&self) {
-    println!("{}: {}", self.value1, self.value2);
-  }
+    fn test_output(&self) {
+    	println!("{}: {}", self.value1, self.value2);
+    }
 }
 ```
 
@@ -815,9 +815,9 @@ impl TwoValues<&str, i32> {
 
 ```rust
 impl<T: Display> TwoValues<&str, T> {
-  fn test_output2(&self) {
-    println!("{}: {}", self.value1, self.value2)
-  }
+    fn test_output2(&self) {
+    	println!("{}: {}", self.value1, self.value2)
+    }
 }
 ```
 
@@ -826,16 +826,16 @@ impl<T: Display> TwoValues<&str, T> {
 ```rust
 // 正确使用
 let two_values = TwoValues::<&str, i32> {
-  value1: "Tip",
-  value2: 10
+    value1: "Tip",
+    value2: 10
 }
 
 print_i32::<SimpleI32Printer>(114514, printer1);
 
 // 错误使用
 let two_values = TwoValues<&str, i32> {
-  value1: "Tip",
-  value2: 10
+    value1: "Tip",
+    value2: 10
 }
 
 print_i32<SimpleI32Printer>(114514, printer1);
@@ -860,7 +860,7 @@ print_i32<SimpleI32Printer>(114514, printer1);
 
 ```rust
 if true {
-  let some_integer = 114514;
+    let some_integer = 114514;
 }
 
 // 这里将报错, 因为已经脱离了 some_integer 的作用域
@@ -871,20 +871,20 @@ println!("value: {}", some_integer);
 
 ```rust
 struct MyValue {
-  value: i32
+    value: i32
 }
 
 fn print_value(value: MyValue) {
-  println!("value: {}", value.value);
+    println!("value: {}", value.value);
 }
 
 fn main() {
-  let my_value = MyValue { value: 114514 };
-  print_value(my_value);
+    let my_value = MyValue { value: 114514 };
+    print_value(my_value);
 
-  // 这里将报错, 因为在执行 print_value 的时候, 所有权已经被转让
-  // 当前作用域不再持有 my_value, 也就无法再使用它
-  println!("value: {}", my_value.value);
+    // 这里将报错, 因为在执行 print_value 的时候, 所有权已经被转让
+    // 当前作用域不再持有 my_value, 也就无法再使用它
+    println!("value: {}", my_value.value);
 }
 ```
 
@@ -892,20 +892,20 @@ fn main() {
 
 ```rust
 struct MyValue {
-  value: i32
+	value: i32
 }
 
 fn print_value(value: &MyValue) {
-  println!("value: {}", value.value);
+	println!("value: {}", value.value);
 }
 
 fn main() {
-  let my_value = MyValue { value: 114514 };
-  print_value(&my_value);
+    let my_value = MyValue { value: 114514 };
+    print_value(&my_value);
 
-  // 这时, 你仍然可以使用 my_value
-  // 因为当前作用域持有 my_value 的所有权
-  println!("value: {}", my_value.value);
+    // 这时, 你仍然可以使用 my_value
+    // 因为当前作用域持有 my_value 的所有权
+    println!("value: {}", my_value.value);
 }
 ```
 
@@ -921,9 +921,9 @@ fn change_value(value: &mut MyValue) {
 
 ```rust
 fn main() {
-  let my_value = MyValue { value: 114514 };
+    let my_value = MyValue { value: 114514 };
 
-  change_value(&mut my_value);
+    change_value(&mut my_value);
 }
 ```
 
@@ -931,9 +931,223 @@ fn main() {
 
 ```rust
 fn change_int_value(value: &mut i32) {
-  *value = 114514;
+    *value = 114514;
 }
 ```
+
+
+
+<br/>
+
+## 错误处理
+
+在 Rust 中, 错误分为两种: 可恢复的错误以及不可恢复的错误. 例如, 在将字符串解析为数字时, 如果数字格式不正确, 所引发的错误是程序逻辑上可以处理的. 而类似于内存访问冲突, 栈溢出这种, 就是无法恢复的错误.
+
+不可恢复的错误会直接导致程序崩溃. 你可以使用 `panic` 宏手动引发错误.
+
+```rust
+panic!("oops");
+println!("test");   // 这里代码不会被执行, 因为程序已经崩了
+```
+
+而对于可恢复的错误, Rust 中的函数都会返回一个 `Result<T, E>` 来表示可能包含错误值的返回值. 它是一个枚举, 包含两种取值: `Ok(T)` 与 `Err(E)`, 我们可以通过 `match` 语句对其两种情况分别进行处理.
+
+```rust
+let origin_str = "123";
+let parse_result = origin_str.parse::<i32>();
+
+match parse_result {
+    Ok(value) => println!("Value is: {}", value),
+    Err(err) => println!("Error: {}", err)
+}
+```
+
+如果你确定该方法的执行不会出现错误, 也可以使用 `unwrap` 函数直接取得正确的值.
+
+```rust
+let origin_str = "123";
+let parsed_value : i32 = origin_str.parse().unwrap();
+```
+
+但是如果尝试对一个错误值使用 `unwrap`, 就会引发 `panic` 了.
+
+```rust
+let origin_str = "不是数字";
+let parsed_value: i32 = origin_str.parse().unwrap();   // 这里会直接崩溃, 因为解析是失败的, 无法取得结果值
+```
+
+Rust 还提供了一个 `?` 操作符用于简化异常处理. 下面的代码是不使用 `?` 的.
+
+```rust
+fn mul_input_with_10() -> Result<i32, ParseIntError> {
+    let mut input = String::new();
+    std::io::stdin().read_line(&mut input).unwrap();
+
+    let valueResult = input.parse::<i32>();
+
+    match valueResult {
+        Ok(value) => Ok(value * 10),
+        Err(err) => Err(err),
+    }
+}
+```
+
+如果使用 `?` 的话, 则是这样. 当结果为 `Err(E)` 的时候, 会直接将结果作为当前函数的返回值返回, 表达式的结果则是正确的值.
+
+```rust
+fn mul_input_with_10() -> Result<i32, ParseIntError> {
+    let mut input = String::new();
+    std::io::stdin().read_line(&mut input).unwrap();
+
+    Ok(input.parse::<i32>()? * 10)
+}
+```
+
+
+
+<br/>
+
+## 模块
+
+模块是 Rust 中组织源代码的方式. 在 Rust 中, 一个文件或者文件夹都可以叫做一个 "模块".
+
+例如, 当我有一个 `main.rs`, 我希望在里面使用 `test.rs` 的成员时:
+
+```rust
+// 这里是 test.rs 的内容
+
+// 公开一个函数
+pub fn test_fn() {
+    println!("test fn");
+}
+```
+
+下面是 `main.rs`, 使用 `mod` 语句引入模块, 然后使用 `use` 语句使用模块中的成员:
+
+```rust
+// 引入 test 模块
+mod test;
+
+// 使用模块中的成员
+use test::test_fn;
+
+fn main() {
+    test_fn();
+}
+```
+
+如果希望将一个文件夹暴露为一个模块的话, 你需要先创建一个文件夹, 然后在文件夹下创建 `mod.rs`, 然后编写内容. 在该文件下向外暴露的成员, 即为该模块的成员.
+
+```rust
+// 这里是 test2/mod.rs 的内容
+
+// 公开一个函数
+pub fn test_fn() {
+    println!("test fn");
+}
+```
+
+引用的时候和之前的代码一样, 只需要使用 `mod test2` 即可引入 `test2` 模块.
+
+如果你希望在 `test2`  文件夹下编写更多的文件, 并向外暴露:
+
+```txt
+|- test2
+|  |- another.rs
+|  -- mod.rs
+|
+-- main.rs
+```
+
+那么任何你想要向外暴露的内容, 都应该在 `test2/mod.rs` 下声明好.
+
+```rust
+// 这里是 test2/another.rs 的内容
+
+// 公开一个结构
+pub struct AnotherStruct {
+    
+}
+```
+
+在 `test2/mod.rs` 中, 你需要导入并公开 `another` 这个模块.
+
+```rust
+// 这里是 test2/mod.rs 的内容
+
+// 导入并公开 another 模块
+pub mod another;
+
+// 公开属于 test2 的成员
+pub fn test_fn() {
+    println!("test fn");
+}
+```
+
+于是, 你就可以在 `main.rs` 中, 使用 `AnotherStruct` 这个类型了.
+
+```rust
+// 导入 test2 模块
+mod test2;
+
+// 使用 test2/another 中的 AnotherStruct
+use test2::another::AnotherStruct;
+
+fn main() {
+    let value = AnotherStruct {};
+}
+```
+
+但是, 如果你希望在使用 `AnotherStruct` 时, 直接通过 `test2::AnotherStruct` 导入, 也可以在 `mod.rs` 这样向外公开:
+
+```rust
+// 这里是 test/mod.rs 的内容
+
+// 导入 another 模块, 但是不公开
+mod another;
+
+// 使用并公开 another 下的结构
+pub use another::AnotherStruct;
+```
+
+这样 `AnotherStruct` 可以通过 `use` 语句直接向外暴露, 使用时就可以直接 `use test2::AnotherStruct` 了
+
+```rust
+// 导入 test2 模块
+mod test2;
+
+// 使用 test2 直接暴露的 AnotherStruct
+use test2::AnotherStruct;
+
+fn main() {
+    let value = AnotherStruct {};
+}
+```
+
+方便起见, 你也可以直接用 `*` 在 `mod.rs` 直接向外暴露某个模块的所以成员:
+
+```rust
+mod another;
+
+// 向外暴露 another 中的所有成员
+pub use another::*;
+```
+
+如果你在使用多个模块时, 它们的类型名称相同, 你可以在 `use` 的使用, 使用 `as` 为其取别名:
+
+```rust
+mod test2;
+
+use test2::AnotherStruct as qwq;
+
+fn main() {
+    let value = qwq {};
+}
+```
+
+
+
+
 
 
 
